@@ -10,6 +10,16 @@
 <body>
     <h2>GSNv2 Test App</h2>
 
+This page can be used to test support of browsers for GSN methods.
+the log is pushed (in reverse) into the page, so we can see the log even of a mobile browser with no debug console.
+
+To check signature, add URL params (need to refresh page to take effect)
+<li> <a href="#suff=_v3">add _v3 suffix, stringify=false</a>
+<li> <a href="#suff=_v3&str=1">add _v3 suffix, stringify=true</a>
+<li> <a href="#suff=_v4">add _v4 suffix, stringify=false</a>
+<li> <a href="#suff=_v4&str=1">add _v4 suffix, stringify=true</a>
+<br>
+
     <script>
       window.app.identifyNetwork().then(function (network) {
         console.log(`identified network: ${JSON.stringify(network)}`)
@@ -26,9 +36,10 @@
 <hr>
 <div id="logview"> </div>
 <hr>
-<PRE>
+
+<tt>
 <div id="conLogView"> </div>
-</PRE>
+</tt>
 
 <script>
     window.app.initlog()
