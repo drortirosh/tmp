@@ -1,0 +1,37 @@
+<html>
+<head>
+
+    <title>GSNv2 Test</title>
+
+    <script src="bundle.js">
+    </script>
+
+</head>
+<body>
+    <h2>GSNv2 Test App</h2>
+
+    <script>
+      window.app.identifyNetwork().then(function (network) {
+        console.log(`identified network: ${JSON.stringify(network)}`)
+        document.getElementById('capture_button').disabled = false
+        window.app.listenToEvents()
+      })
+    </script>
+
+    <font color="red"><span id="error"></span></font>
+    <button id="capture_button" disabled onClick="window.app.contractCall()">
+        Capture the flag
+    </button>
+
+<hr>
+<div id="logview"> </div>
+<hr>
+<PRE>
+<div id="conLogView"> </div>
+</PRE>
+
+<script>
+    window.app.initlog()
+</script>
+</body>
+</html>
